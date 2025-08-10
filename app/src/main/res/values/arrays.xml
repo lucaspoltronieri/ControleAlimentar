@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="tiposRefeicao">
+        <item>@string/cafe_da_manha</item>
+        <item>@string/almoco</item>
+        <item>@string/cafe_da_tarde</item>
+        <item>@string/jantar</item>
+        <item>@string/ceia</item>
+        <item>@string/refeicao_extra</item>
+    </string-array>
+</resources>

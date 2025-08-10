@@ -1,24 +1,19 @@
 package com.lucaspoltronieri.controlealimentar;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 public class RefeicaoActivity extends AppCompatActivity {
 
     private Spinner spinnerTipoRefeicao;
-    private TextView textTipoRefeicao, textData;
     private EditText editTextDate;
     private RadioGroup radioGroupFome;
     private CheckBox checkBoxForaHorario;
@@ -32,16 +27,11 @@ public class RefeicaoActivity extends AppCompatActivity {
         //Referência dos elementos que compõe a activity
 
         spinnerTipoRefeicao = findViewById(R.id.spinnerTipoRefeicao);
-        textTipoRefeicao = findViewById(R.id.textTipoRefeicao);
-        textData = findViewById(R.id.textData);
         editTextDate = findViewById(R.id.editTextDate);
         radioGroupFome = findViewById(R.id.radioGroupFome);
         checkBoxForaHorario = findViewById(R.id.checkBoxForaHorario);
         buttonSalvar = findViewById(R.id.buttonSalvar);
         buttonLimpar = findViewById(R.id.buttonLimpar);
-
-        //preenche o spinner com dados da arraylist
-        popularTipoRefeicao();
 
         //limpar campos
         buttonLimpar.setOnClickListener(v ->{
@@ -95,21 +85,5 @@ public class RefeicaoActivity extends AppCompatActivity {
 
             Toast.makeText(this,resumo, Toast.LENGTH_LONG).show();
         });
-    }
-    public void popularTipoRefeicao(){
-
-        ArrayList<String> list = new ArrayList<>();
-        list.add(getString(R.string.cafe_da_manha));
-        list.add(getString(R.string.almoco));
-        list.add(getString(R.string.cafe_da_tarde));
-        list.add(getString(R.string.jantar));
-        list.add(getString(R.string.ceia));
-        list.add(getString(R.string.refeicao_extra));
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,list);
-
-        spinnerTipoRefeicao.setAdapter(adapter);
-
     }
 }

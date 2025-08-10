@@ -20,8 +20,8 @@ public class RefeicaoAdapter extends BaseAdapter {
 
         public TextView textViewValorTipoRefeicao;
         public TextView textViewValorData;
-        public TextView textViewForaHorario;
-        public TextView textViewApetite;
+        public TextView textViewValorForaHorario;
+        public TextView textViewValorApetite;
 
     }
 
@@ -61,8 +61,8 @@ public class RefeicaoAdapter extends BaseAdapter {
 
             holder.textViewValorTipoRefeicao = convertView.findViewById(R.id.textViewValorTipoRefeicao);
             holder.textViewValorData = convertView.findViewById(R.id.textViewValorData);
-            holder.textViewForaHorario = convertView.findViewById(R.id.textViewValorForaHorario);
-            holder.textViewApetite = convertView.findViewById(R.id.textViewApetite);
+            holder.textViewValorForaHorario = convertView.findViewById(R.id.textViewValorForaHorario);
+            holder.textViewValorApetite = convertView.findViewById(R.id.textViewValorApetite);
 
             convertView.setTag(holder);
 
@@ -77,11 +77,11 @@ public class RefeicaoAdapter extends BaseAdapter {
         holder.textViewValorData.setText(refeicao.getData());
 
         if(refeicao.isForaHorario()){
-            holder.textViewForaHorario.setText(R.string.refeicao_fora_horario);
+            holder.textViewValorForaHorario.setText(R.string.refeicao_fora_horario);
         } else {
-            holder.textViewForaHorario.setText(R.string.refeicao_horario_normal);
+            holder.textViewValorForaHorario.setText(R.string.refeicao_horario_normal);
         }
-        holder.textViewApetite.setText(apetite[refeicao.getApetite()]);
+        holder.textViewValorApetite.setText(apetite[refeicao.getApetite()]);
 
 
         return convertView;

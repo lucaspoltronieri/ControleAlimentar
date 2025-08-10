@@ -9,6 +9,7 @@
     <string name="ceia">Ceia</string>
     <string name="refeicao_extra">Refeição Extra</string>
     <string name="refeicao_fora_horario">Refeição fora de hora</string>
+    <string name="refeicao_horario_normal">Refeição horario normal</string>
     <string name="com_fome">Com Fome</string>
     <string name="sem_fome">Sem Fome</string>
     <string name="salvar">Salvar</string>

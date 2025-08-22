@@ -1,7 +1,10 @@
 package com.lucaspoltronieri.controlealimentar;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +24,25 @@ public class ListaRefeicaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_refeicao);
 
         listViewRefeicao = findViewById(R.id.listViewRefeicao);
+
+
+        listViewRefeicao.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent,
+                                    View view,
+                                    int position,
+                                    long id) {
+                Refeicao refeicao = (Refeicao) listViewRefeicao.getItemAtPosition(position);
+
+                String[] tipoRefeicao = getResources().getStringArray(R.array.tiposRefeicao);
+
+                String selected = getString(R.string.tipo_refeicao) + ": " + tipoRefeicao[refeicao.getTipoRefeicao()] + "\n"
+                        + getString(R.string.clicada);
+
+                Toast.makeText(getApplicationContext(), selected, Toast.LENGTH_LONG).show();
+            }
+        });
 
         popularListaRefeicao();
     }

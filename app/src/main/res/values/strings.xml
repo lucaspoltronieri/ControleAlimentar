@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ControleAlimentar</string>
+    <string name="app_name">ThemeStylesIcons</string>
     <string name="data">Data</string>
     <string name="tipo_refeicao">Tipo Refeição</string>
     <string name="cafe_da_manha">Café da manha</string>
@@ -25,4 +25,9 @@
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
     <string name="clicada">Clicada !</string>
+    <string name="logo_utfpr">Logo UTFPR</string>
+    <string name="especialização_tecnologia_java">Especialização Tecnologia Java</string>
+    <string name="lucas_poltronieri_sampaio">Lucas Poltronieri Sampaio</string>
+    <string name="lucaspoltronierisampaio">lucaspoltronierisampaio@gmail.com</string>
+    <string name="descricao">App para registrar as refeições realizadas diariamente</string>
 </resources>

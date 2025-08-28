@@ -30,4 +30,8 @@
     <string name="lucas_poltronieri_sampaio">Lucas Poltronieri Sampaio</string>
     <string name="lucaspoltronierisampaio">lucaspoltronierisampaio@gmail.com</string>
     <string name="descricao">App para registrar as refeições realizadas diariamente</string>
+    <string name="Sobre">sobre</string>
+    <string name="sobre">Sobre</string>
+    <string name="controle_alimentar">Controle Alimentar</string>
+    <string name="adicionar">Adicionar</string>
 </resources>

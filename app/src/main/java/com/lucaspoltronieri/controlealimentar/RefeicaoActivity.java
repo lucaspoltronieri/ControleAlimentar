@@ -1,5 +1,6 @@
 package com.lucaspoltronieri.controlealimentar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,6 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RefeicaoActivity extends AppCompatActivity {
 
+    public static final String KEY_DATA = "KEY_DATA";
+    public static final String KEY_APETITE = "KEY_APETITE";
+    public static final String KEY_FORAHORARIO = "KEY_FORAHORARIO";
+    public static final String KEY_TIPOREFEICAO = "KEY_TIPOREFEICAO";
     private Spinner spinnerTipoRefeicao;
     private EditText editTextDate;
     private RadioGroup radioGroupFome;
@@ -23,6 +28,8 @@ public class RefeicaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refeicao);
+
+        setTitle("Nova Refeição");
 
         //Referência dos elementos que compõe a activity
 
@@ -51,7 +58,7 @@ public class RefeicaoActivity extends AppCompatActivity {
         //salvar
         buttonSalvar.setOnClickListener(v ->{
 
-            String tipoRefeicao = spinnerTipoRefeicao.getSelectedItem().toString();
+            int tipoRefeicao = spinnerTipoRefeicao.getSelectedItemPosition();
             String data = editTextDate.getText().toString().trim();
             //validação
             if(data.isEmpty()){
@@ -72,18 +79,20 @@ public class RefeicaoActivity extends AppCompatActivity {
                 return;
             }
             //pega o valor selecionado do groupRadio
-            RadioButton radioButtonSelecionado = findViewById(selectedRadiId);
-            String apetite = radioButtonSelecionado.getText().toString();
+            RadioButton rbSelecionado = findViewById(selectedRadiId);
+            int apetite = Integer.parseInt(String.valueOf(rbSelecionado.getTag()));
+
             boolean foraHorario = checkBoxForaHorario.isChecked();
 
-            //lançar dados em um string
-            String resumo =
-                     getString(R.string.tipo) + tipoRefeicao + "\n"
-                    +getString(R.string.stringdata) + data + "\n"
-                    +getString(R.string.fora_do_horario) +(foraHorario ? getString(R.string.sim) : getString(R.string.nao)) + "\n"
-                    +getString(R.string.apetite) + apetite;
+            Intent intentResposta = new Intent();
+            intentResposta.putExtra(KEY_TIPOREFEICAO, tipoRefeicao);
+            intentResposta.putExtra(KEY_DATA, data);
+            intentResposta.putExtra(KEY_APETITE, apetite);
+            intentResposta.putExtra(KEY_FORAHORARIO, foraHorario);
 
-            Toast.makeText(this,resumo, Toast.LENGTH_LONG).show();
+            setResult(RefeicaoActivity.RESULT_OK, intentResposta);
+            finish();
+
         });
     }
 }

@@ -81,13 +81,15 @@
             android:id="@+id/radioButtonComFome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/com_fome" />
+            android:text="@string/com_fome"
+            android:tag="0"/>
 
         <RadioButton
             android:id="@+id/radioButtonSemFome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sem_fome" />
+            android:text="@string/sem_fome"
+            android:tag="1"/>
 
     </RadioGroup>
 

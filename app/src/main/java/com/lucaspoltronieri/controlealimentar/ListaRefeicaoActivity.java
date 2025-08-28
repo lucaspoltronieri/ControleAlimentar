@@ -1,11 +1,16 @@
 package com.lucaspoltronieri.controlealimentar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -22,6 +27,7 @@ public class ListaRefeicaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_refeicao);
+        setTitle(getString(R.string.controle_alimentar));
 
         listViewRefeicao = findViewById(R.id.listViewRefeicao);
 
@@ -49,27 +55,49 @@ public class ListaRefeicaoActivity extends AppCompatActivity {
 
     private void popularListaRefeicao(){
 
-        int[] refeicao_tipo = getResources().getIntArray(R.array.refeicao_tipo);
-        String[] refeicao_datas = getResources().getStringArray(R.array.refeicao_datas);
-        int[] refeicao_fora_horario = getResources().getIntArray(R.array.refeicao_fora_horario);
-        int[] refeicao_apetite = getResources().getIntArray(R.array.refeicao_apetite);
-
         listaRefeicao = new ArrayList<>();
-
-        //criar lista
-        for (int i = 0; i < refeicao_datas.length; i++){
-            boolean foraHorario = (refeicao_fora_horario[i] ==1);
-            Refeicao refeicao = new Refeicao(
-                    refeicao_tipo[i],
-                    refeicao_datas[i],
-                    refeicao_apetite[i],
-                    foraHorario
-            );
-            listaRefeicao.add(refeicao);
-        }
 
         refeicaoAdapter = new RefeicaoAdapter(this, listaRefeicao);
 
         listViewRefeicao.setAdapter(refeicaoAdapter);
     }
+
+    public void abrirSobre(View view){
+        startActivity(new Intent(this,SobreActivity.class));
+    }
+
+    ActivityResultLauncher<Intent> launcherNovaRefeicao = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+
+                    if(result.getResultCode() == ListaRefeicaoActivity.RESULT_OK){
+                        Intent intent = result.getData();
+
+                        Bundle bundle = intent.getExtras();
+
+                        if(bundle !=null){
+                            int tipoRefeicao = bundle.getInt(RefeicaoActivity.KEY_TIPOREFEICAO);
+                            String data = bundle.getString(RefeicaoActivity.KEY_DATA);
+                            int apetite = bundle.getInt(RefeicaoActivity.KEY_APETITE);
+                            boolean foraHorario = bundle.getBoolean(RefeicaoActivity.KEY_FORAHORARIO);
+
+                            Refeicao refeicao = new Refeicao(tipoRefeicao,data,apetite,foraHorario);
+                            listaRefeicao.add(refeicao);
+                            refeicaoAdapter.notifyDataSetChanged();
+                        }
+
+
+
+                    }
+
+                }
+            }
+    );
+
+    public void abrirNovaRefeicao(View view){
+        Intent intentAbertura = new Intent(this, RefeicaoActivity.class);
+        launcherNovaRefeicao.launch(intentAbertura);
+    }
+
 }

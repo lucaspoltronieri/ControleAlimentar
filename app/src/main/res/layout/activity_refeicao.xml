@@ -11,7 +11,7 @@
         android:id="@+id/textData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:text="@string/data"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,9 +21,9 @@
         android:id="@+id/editTextDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/dd_mm_aaaa"
         android:inputType="date"
@@ -34,19 +34,22 @@
 
     <TextView
         android:id="@+id/textTipoRefeicao"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/tipo_refeicao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerTipoRefeicao"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:entries="@array/tiposRefeicao"
@@ -58,9 +61,9 @@
         android:id="@+id/checkBoxForaHorario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/refeicao_fora_horario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,9 +73,9 @@
         android:id="@+id/radioGroupFome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewApetite">
@@ -81,48 +84,27 @@
             android:id="@+id/radioButtonComFome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/com_fome"
-            android:tag="0"/>
+            android:tag="0"
+            android:text="@string/com_fome" />
 
         <RadioButton
             android:id="@+id/radioButtonSemFome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sem_fome"
-            android:tag="1"/>
+            android:tag="1"
+            android:text="@string/sem_fome" />
 
     </RadioGroup>
 
-    <Button
-        android:id="@+id/buttonSalvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/salvar"
-        app:layout_constraintEnd_toStartOf="@+id/buttonLimpar"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroupFome" />
-
-    <Button
-        android:id="@+id/buttonLimpar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/limpar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonSalvar"
-        app:layout_constraintTop_toTopOf="@+id/buttonSalvar" />
-
     <TextView
         android:id="@+id/textViewApetite"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/apetite"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxForaHorario" />
 

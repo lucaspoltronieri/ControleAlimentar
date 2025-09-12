@@ -128,6 +128,10 @@ public class ListaRefeicaoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Habilitar o Tema salvo no SharedPreferences
+        ThemeUtils.applySavedTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_refeicao);
         setTitle(getString(R.string.controle_alimentar));
@@ -176,6 +180,10 @@ public class ListaRefeicaoActivity extends AppCompatActivity {
 
         } else if (idMenuItem == R.id.menuItemSobre) {
             abrirSobre();
+            return true;
+
+        } else if (idMenuItem == R.id.menuItemConfig) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
 
         } else {

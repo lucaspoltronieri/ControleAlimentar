@@ -37,4 +37,8 @@
     <string name="utfpr">UTFPR – Universidade Tecnológica Federal do Paraná</string>
     <string name="editar">Editar</string>
     <string name="excluir">Excluir</string>
+    <string name="nova_refeicao">Nova Refeição</string>
+    <string name="editar_refeicao">Editar Refeição</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="modo_escuro">Modo Escuro</string>
 </resources>

@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ThemeStylesIcons">
         <activity
-            android:name=".SobreActivity"
+            android:name=".SettingsActivity"
             android:exported="false"
             android:parentActivityName=".ListaRefeicaoActivity"/>
+        <activity
+            android:name=".SobreActivity"
+            android:exported="false"
+            android:parentActivityName=".ListaRefeicaoActivity" />
         <activity
             android:name=".ListaRefeicaoActivity"
             android:exported="true"
@@ -28,7 +32,7 @@
         <activity
             android:name=".RefeicaoActivity"
             android:exported="false"
-            android:parentActivityName=".ListaRefeicaoActivity"/>
+            android:parentActivityName=".ListaRefeicaoActivity" />
     </application>
 
 </manifest>

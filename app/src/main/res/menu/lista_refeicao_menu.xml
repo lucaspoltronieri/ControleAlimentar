@@ -10,4 +10,9 @@
     <item
         android:id="@+id/menuItemSobre"
         android:title="@string/Sobre" />
+
+    <item
+        android:id="@+id/menuItemConfig"
+        android:title="@string/configuracoes"
+        app:showAsAction="never" />
 </menu>

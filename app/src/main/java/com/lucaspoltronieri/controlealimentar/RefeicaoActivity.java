@@ -84,6 +84,10 @@ public class RefeicaoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Habilitar o Tema salvo no SharedPreferences
+        ThemeUtils.applySavedTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refeicao);
 
@@ -100,10 +104,10 @@ public class RefeicaoActivity extends AppCompatActivity {
             modo = bundle.getInt(KEY_MODO);
 
             if(modo == MODO_NOVO){
-                setTitle("Nova Refeição");
+                setTitle(getString(R.string.nova_refeicao));
             }
             else {
-                setTitle("Editar Refeição");
+                setTitle(getString(R.string.editar_refeicao));
 
                 int tipoRefeicao = bundle.getInt(RefeicaoActivity.KEY_TIPOREFEICAO);
                 String data = bundle.getString(RefeicaoActivity.KEY_DATA);
